@@ -3,41 +3,66 @@
 ## Prerequisites Checklist
 
 - [ ] Node.js 18+ installed (`node --version`)
-- [ ] PostgreSQL 12+ installed and running
-- [ ] PostgreSQL database credentials (host, port, username, password)
+- [ ] Render.com account (for free PostgreSQL) OR local PostgreSQL installed
+- [ ] Database credentials (from Render dashboard or local setup)
 
 ## Step-by-Step Setup
 
-### 1. Database Setup (5 minutes)
+### 1. Database Setup (10 minutes)
 
-1. **Create PostgreSQL database:**
-   ```sql
-   CREATE DATABASE fueleu_db;
-   ```
+#### Option A: Render.com (Recommended - Free Cloud Database)
 
-2. **Get your database credentials:**
-   - Host: Usually `localhost`
-   - Port: Usually `5432`
+1. **Create Render account:**
+   - Go to [render.com](https://render.com) and sign up (free)
+   - Use GitHub login for easiest setup
+
+2. **Create PostgreSQL database:**
+   - Click "New +" → "PostgreSQL"
+   - Name: `fueleu-db`
    - Database: `fueleu_db`
-   - Username: Your PostgreSQL username
-   - Password: Your PostgreSQL password
+   - Region: Choose closest to you
+   - Plan: **Free**
+   - Click "Create PostgreSQL"
+   - Wait 2-3 minutes for provisioning
 
-3. **Configure backend:**
+3. **Get credentials from Render dashboard:**
+   - Click on your database
+   - Go to "Connections" section
+   - Copy **External Database URL** or note individual fields:
+     - Hostname (DB_HOST)
+     - Port (5432)
+     - Database (DB_NAME)
+     - Username (DB_USER)
+     - Password (click "Show" to reveal)
+
+4. **Configure backend:**
    ```bash
    cd backend
    cp .env.example .env
    ```
    
-   Edit `backend/.env` and fill in your credentials:
+   Edit `backend/.env` with Render credentials:
    ```env
-   DB_HOST=localhost
+   DB_HOST=your-hostname.onrender.com
    DB_PORT=5432
    DB_NAME=fueleu_db
    DB_USER=your_username
    DB_PASSWORD=your_password
+   DB_SSL=true
    PORT=3001
    NODE_ENV=development
    ```
+
+   **See [RENDER_SETUP.md](./RENDER_SETUP.md) for detailed step-by-step guide!**
+
+#### Option B: Local PostgreSQL
+
+1. **Install PostgreSQL** (if not installed)
+2. **Create database:**
+   ```sql
+   CREATE DATABASE fueleu_db;
+   ```
+3. **Configure backend** with local credentials (see [DATABASE_SETUP.md](./DATABASE_SETUP.md))
 
 ### 2. Backend Setup (3 minutes)
 

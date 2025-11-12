@@ -41,7 +41,7 @@ frontend/
 ### Prerequisites
 
 - Node.js 18+ and npm
-- PostgreSQL 12+
+- PostgreSQL 12+ (local) OR Render.com account (free cloud database)
 - Git
 
 ### Setup Instructions
@@ -49,8 +49,8 @@ frontend/
 1. **Clone the repository** (or navigate to the project directory)
 
 2. **Set up the database:**
-   - See [DATABASE_SETUP.md](./DATABASE_SETUP.md) for detailed instructions
-   - Create a PostgreSQL database named `fueleu_db`
+   - **Option 1 (Recommended)**: Use Render.com free PostgreSQL - See [RENDER_SETUP.md](./RENDER_SETUP.md) for step-by-step guide
+   - **Option 2**: Use local PostgreSQL - See [DATABASE_SETUP.md](./DATABASE_SETUP.md) for instructions
    - Configure your database credentials in `backend/.env`
 
 3. **Backend Setup:**
@@ -183,12 +183,27 @@ npm test
 ## 📝 Environment Variables
 
 ### Backend (.env)
+
+**For Render.com:**
+```env
+DB_HOST=your-hostname.onrender.com
+DB_PORT=5432
+DB_NAME=fueleu_db
+DB_USER=your_username
+DB_PASSWORD=your_password
+DB_SSL=true
+PORT=3001
+NODE_ENV=development
+```
+
+**For Local PostgreSQL:**
 ```env
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=fueleu_db
 DB_USER=your_username
 DB_PASSWORD=your_password
+DB_SSL=false
 PORT=3001
 NODE_ENV=development
 ```
@@ -216,7 +231,9 @@ VITE_API_URL=http://localhost:3001
 
 ## 📚 Documentation
 
-- [DATABASE_SETUP.md](./DATABASE_SETUP.md) - Database configuration guide
+- [RENDER_SETUP.md](./RENDER_SETUP.md) - **Step-by-step Render.com PostgreSQL setup** (Recommended)
+- [DATABASE_SETUP.md](./DATABASE_SETUP.md) - Database configuration guide (Render + Local options)
+- [QUICK_START.md](./QUICK_START.md) - Quick setup guide
 - [AGENT_WORKFLOW.md](./AGENT_WORKFLOW.md) - AI agent usage documentation
 - [REFLECTION.md](./REFLECTION.md) - Reflection on development process
 

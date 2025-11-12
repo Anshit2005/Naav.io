@@ -9,6 +9,10 @@ const config: PoolConfig = {
   database: process.env.DB_NAME || 'fueleu_db',
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
+  // SSL is required for cloud databases like Render
+  ssl: process.env.DB_SSL === 'true' || process.env.DB_HOST?.includes('render.com') 
+    ? { rejectUnauthorized: false } 
+    : undefined,
 };
 
 if (!config.user || !config.password) {
