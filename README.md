@@ -2,7 +2,7 @@
 
 A full-stack compliance management system that helps maritime operators monitor, compare, and optimize ship emissions under the Fuel EU Maritime Regulation (EU 2023/1805).
 
-## 🌊 Overview
+## Overview
 
 Naav.io is a comprehensive platform designed to help shipping companies comply with the European Union's Fuel EU Maritime Regulation. The system enables operators to:
 
@@ -13,7 +13,7 @@ Naav.io is a comprehensive platform designed to help shipping companies comply w
 
 Built with modern web technologies and following clean architecture principles, Naav.io provides an intuitive interface for managing complex maritime compliance requirements.
 
-## 🏗️ Architecture
+## Architecture
 
 This project follows **Hexagonal Architecture** (Ports & Adapters / Clean Architecture) principles, ensuring clean separation of concerns and maintainability:
 
@@ -47,7 +47,7 @@ frontend/
       infrastructure/ # API client implementation (Axios)
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -88,29 +88,29 @@ frontend/
    - Frontend: http://localhost:3000
    - Backend API: http://localhost:3001
 
-## 📋 Features
+## Features
 
-### 🗺️ Routes Management
+### Routes Management
 - View all routes with comprehensive filtering (vessel type, fuel type, year)
 - Set baseline route for performance comparisons
 - Display detailed route metrics: GHG intensity, fuel consumption, distance, total emissions
 - Real-time route data management
 
-### 📊 Route Comparison
+### Route Comparison
 - Compare routes against baseline performance
 - Calculate percentage difference in GHG intensity
 - Visualize emissions data with interactive bar charts
 - Compliance status indicators (✅/❌) based on target intensity (89.3368 gCO₂e/MJ)
 - Target-based compliance checking
 
-### 💰 Banking (Article 20)
+### Banking (Article 20)
 - Calculate Compliance Balance (CB) for vessels
 - Bank positive CB for future use
 - Apply banked surplus to current deficits
 - View comprehensive banking records and KPIs
 - Track banking transactions over time
 
-### 🤝 Pooling (Article 21)
+### Pooling (Article 21)
 - Create compliance pools with multiple ships
 - Validate pool rules:
   - Pool sum must be ≥ 0
@@ -119,7 +119,7 @@ frontend/
 - Greedy allocation algorithm for optimal CB distribution
 - Real-time pool validation and member management
 
-## 🧮 Core Formulas
+## Core Formulas
 
 The platform implements the official Fuel EU Maritime calculation methodologies:
 
@@ -129,7 +129,7 @@ The platform implements the official Fuel EU Maritime calculation methodologies:
   - Positive CB = Surplus (can be banked)
   - Negative CB = Deficit (requires offsetting)
 
-## 🧪 Testing
+## Testing
 
 ### Backend Tests
 ```bash
@@ -143,7 +143,7 @@ cd frontend
 npm test
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
@@ -169,7 +169,7 @@ npm test
 └── README.md                  # This file
 ```
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Routes
 - `GET /routes` - Get all routes
@@ -191,7 +191,7 @@ npm test
 ### Health Check
 - `GET /health` - Server health status
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 - **Runtime**: Node.js + TypeScript
@@ -208,7 +208,7 @@ npm test
 - **HTTP Client**: Axios
 - **Architecture**: Hexagonal Architecture
 
-## 📝 Environment Variables
+## Environment Variables
 
 ### Backend (.env)
 
@@ -241,7 +241,7 @@ NODE_ENV=development
 VITE_API_URL=http://localhost:3001
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Database Connection Issues
 - Verify PostgreSQL is running (local) or active (Render)
@@ -262,7 +262,7 @@ VITE_API_URL=http://localhost:3001
 - Ensure `DB_SSL=true` for Render connections
 - See [RENDER_SETUP.md](./RENDER_SETUP.md) for troubleshooting
 
-## 📚 Documentation
+## Documentation
 
 - [RENDER_SETUP.md](./RENDER_SETUP.md) - **Step-by-step Render.com PostgreSQL setup** (Recommended)
 - [DATABASE_SETUP.md](./DATABASE_SETUP.md) - Database configuration guide (Render + Local options)
@@ -276,7 +276,7 @@ ISC
 
 ## 👤 Author
 
-Naav.io - Fuel EU Maritime Compliance Platform
+Anshit Agarwal
 
 ## 🔗 Repository
 
@@ -284,4 +284,4 @@ Naav.io - Fuel EU Maritime Compliance Platform
 
 ---
 
-**Built with ❤️ for maritime compliance management**
+**Built with ❤️ by ANNA**
