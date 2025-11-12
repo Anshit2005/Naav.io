@@ -1,7 +1,7 @@
 {
-  "name": "fueleu-backend",
+  "name": "naav-backend",
   "version": "1.0.0",
-  "description": "Fuel EU Maritime Compliance Backend API",
+  "description": "Naav.io — Fuel EU Maritime Compliance Backend API",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/infrastructure/server/index.ts",

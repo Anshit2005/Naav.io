@@ -1,10 +1,21 @@
-# Fuel EU Maritime Compliance Platform
+# Naav.io — Fuel EU Maritime Compliance Platform
 
-A full-stack application for managing Fuel EU Maritime compliance, including route management, compliance balance calculation, banking, and pooling operations.
+A full-stack compliance management system that helps maritime operators monitor, compare, and optimize ship emissions under the Fuel EU Maritime Regulation (EU 2023/1805).
+
+## 🌊 Overview
+
+Naav.io is a comprehensive platform designed to help shipping companies comply with the European Union's Fuel EU Maritime Regulation. The system enables operators to:
+
+- **Monitor** route emissions and compliance balances
+- **Compare** vessel performance against baseline targets
+- **Optimize** compliance through banking and pooling mechanisms
+- **Track** GHG intensity and ensure regulatory compliance
+
+Built with modern web technologies and following clean architecture principles, Naav.io provides an intuitive interface for managing complex maritime compliance requirements.
 
 ## 🏗️ Architecture
 
-This project follows **Hexagonal Architecture** (Ports & Adapters / Clean Architecture) principles:
+This project follows **Hexagonal Architecture** (Ports & Adapters / Clean Architecture) principles, ensuring clean separation of concerns and maintainability:
 
 ### Backend Structure
 
@@ -46,7 +57,11 @@ frontend/
 
 ### Setup Instructions
 
-1. **Clone the repository** (or navigate to the project directory)
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Anshit2005/Naav.io.git
+   cd Naav.io
+   ```
 
 2. **Set up the database:**
    - **Option 1 (Recommended)**: Use Render.com free PostgreSQL - See [RENDER_SETUP.md](./RENDER_SETUP.md) for step-by-step guide
@@ -75,38 +90,44 @@ frontend/
 
 ## 📋 Features
 
-### Routes Tab
-- View all routes with filtering (vessel type, fuel type, year)
-- Set baseline route for comparisons
-- Display route details: GHG intensity, fuel consumption, distance, emissions
+### 🗺️ Routes Management
+- View all routes with comprehensive filtering (vessel type, fuel type, year)
+- Set baseline route for performance comparisons
+- Display detailed route metrics: GHG intensity, fuel consumption, distance, total emissions
+- Real-time route data management
 
-### Compare Tab
-- Compare routes against baseline
-- Calculate percentage difference
-- Visualize GHG intensity with bar charts
-- Compliance status (✅/❌) based on target intensity (89.3368 gCO₂e/MJ)
+### 📊 Route Comparison
+- Compare routes against baseline performance
+- Calculate percentage difference in GHG intensity
+- Visualize emissions data with interactive bar charts
+- Compliance status indicators (✅/❌) based on target intensity (89.3368 gCO₂e/MJ)
+- Target-based compliance checking
 
-### Banking Tab (Article 20)
-- Calculate Compliance Balance (CB)
+### 💰 Banking (Article 20)
+- Calculate Compliance Balance (CB) for vessels
 - Bank positive CB for future use
 - Apply banked surplus to current deficits
-- View banking records and KPIs
+- View comprehensive banking records and KPIs
+- Track banking transactions over time
 
-### Pooling Tab (Article 21)
+### 🤝 Pooling (Article 21)
 - Create compliance pools with multiple ships
 - Validate pool rules:
   - Pool sum must be ≥ 0
   - Deficit ships cannot exit worse
   - Surplus ships cannot exit negative
-- Greedy allocation algorithm for CB distribution
+- Greedy allocation algorithm for optimal CB distribution
+- Real-time pool validation and member management
 
 ## 🧮 Core Formulas
+
+The platform implements the official Fuel EU Maritime calculation methodologies:
 
 - **Target Intensity (2025)**: 89.3368 gCO₂e/MJ (2% below 91.16)
 - **Energy in Scope**: `fuelConsumption × 41,000 MJ/t`
 - **Compliance Balance**: `(Target − Actual) × Energy in scope`
-  - Positive CB = Surplus
-  - Negative CB = Deficit
+  - Positive CB = Surplus (can be banked)
+  - Negative CB = Deficit (requires offsetting)
 
 ## 🧪 Testing
 
@@ -140,9 +161,11 @@ npm test
 │   │   └── adapters/          # React components & API client
 │   └── package.json
 │
+├── RENDER_SETUP.md            # Render.com PostgreSQL setup guide
 ├── DATABASE_SETUP.md          # Database configuration guide
+├── QUICK_START.md             # Quick setup guide
 ├── AGENT_WORKFLOW.md          # AI agent usage documentation
-├── REFLECTION.md              # Reflection on AI agent usage
+├── REFLECTION.md              # Reflection on development process
 └── README.md                  # This file
 ```
 
@@ -165,20 +188,25 @@ npm test
 ### Pooling
 - `POST /pools` - Create compliance pool
 
+### Health Check
+- `GET /health` - Server health status
+
 ## 🛠️ Technology Stack
 
 ### Backend
-- Node.js + TypeScript
-- Express.js
-- PostgreSQL
-- Hexagonal Architecture
+- **Runtime**: Node.js + TypeScript
+- **Framework**: Express.js
+- **Database**: PostgreSQL
+- **Architecture**: Hexagonal Architecture (Ports & Adapters)
+- **Validation**: Zod
 
 ### Frontend
-- React + TypeScript
-- Vite
-- TailwindCSS
-- Recharts (for data visualization)
-- Axios
+- **Framework**: React + TypeScript
+- **Build Tool**: Vite
+- **Styling**: TailwindCSS
+- **Charts**: Recharts (for data visualization)
+- **HTTP Client**: Axios
+- **Architecture**: Hexagonal Architecture
 
 ## 📝 Environment Variables
 
@@ -216,7 +244,7 @@ VITE_API_URL=http://localhost:3001
 ## 🐛 Troubleshooting
 
 ### Database Connection Issues
-- Verify PostgreSQL is running
+- Verify PostgreSQL is running (local) or active (Render)
 - Check `.env` file has correct credentials
 - Ensure database `fueleu_db` exists
 - See [DATABASE_SETUP.md](./DATABASE_SETUP.md) for detailed help
@@ -228,6 +256,11 @@ VITE_API_URL=http://localhost:3001
 ### CORS Errors
 - Ensure backend is running on port 3001
 - Check `frontend/vite.config.ts` proxy configuration
+
+### Render Database Issues
+- Free tier databases sleep after 90 days - they auto-wake on first connection (~30 seconds)
+- Ensure `DB_SSL=true` for Render connections
+- See [RENDER_SETUP.md](./RENDER_SETUP.md) for troubleshooting
 
 ## 📚 Documentation
 
@@ -243,5 +276,12 @@ ISC
 
 ## 👤 Author
 
-Full-Stack Developer Assignment - Fuel EU Maritime Compliance Platform
+Naav.io - Fuel EU Maritime Compliance Platform
 
+## 🔗 Repository
+
+[GitHub Repository](https://github.com/Anshit2005/Naav.io)
+
+---
+
+**Built with ❤️ for maritime compliance management**
