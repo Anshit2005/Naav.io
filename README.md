@@ -100,7 +100,7 @@ frontend/
 - Compare routes against baseline performance
 - Calculate percentage difference in GHG intensity
 - Visualize emissions data with interactive bar charts
-- Compliance status indicators (✅/❌) based on target intensity (89.3368 gCO₂e/MJ)
+- Compliance status indicators based on target intensity (89.3368 gCO₂e/MJ)
 - Target-based compliance checking
 
 ### Banking (Article 20)
@@ -270,15 +270,12 @@ VITE_API_URL=http://localhost:3001
 - [AGENT_WORKFLOW.md](./AGENT_WORKFLOW.md) - AI agent usage documentation
 - [REFLECTION.md](./REFLECTION.md) - Reflection on development process
 
-## 📄 License
 
-ISC
-
-## 👤 Author
+## Author
 
 Anshit Agarwal
 
-## 🔗 Repository
+## Repository
 
 [GitHub Repository](https://github.com/Anshit2005/Naav.io)
 
