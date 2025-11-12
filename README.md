@@ -46,6 +46,23 @@ frontend/
       ui/             # React components
       infrastructure/ # API client implementation (Axios)
 ```
+## Project Demo Screenshots
+
+### Routes Tab
+Shows all routes with filters and baseline selection:
+![Routes Tab](./screenshots/routes.png)
+
+### Compare Tab
+Compare emission intensities and compliance results:
+![Compare Tab](./screenshots/compare.png)
+
+### Banking Tab
+Manage and bank compliance surplus:
+![Banking Tab](./screenshots/banking.png)
+
+### Pooling Tab
+Combine ships into compliance pools:
+![Pooling Tab](./screenshots/pooling.png)
 
 ## Quick Start
 
